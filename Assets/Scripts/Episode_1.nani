@@ -1,0 +1,16 @@
+#Episode_1
+
+@set G_PlayerName=""
+
+@back Back>Park id:Episode_1 position:0,0 wait:false
+
+@input G_PlayerName summary:"Enter your name"
+
+@stop
+
+@print "Hello, {G_PlayerName}!" author:"Brandon"
+@hidePrinter Dialogue
+
+@miniGame "MemoryCards"
+
+@stop

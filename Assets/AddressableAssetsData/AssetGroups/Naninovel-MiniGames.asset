@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Naninovel-MiniGames
+  m_EditorClassIdentifier: 
+  m_GroupName: Naninovel-MiniGames
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 14aec2daa004317408b18fe815195004
+  m_SerializeEntries:
+  - m_GUID: dd71d2d86eef6a54492cf828df4b4b21
+    m_Address: Naninovel/MiniGames/MemoryCards
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 7b1abe740e1f3564f8ff9938ce66ccf7, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ce011d063e6faf043a4b9944bd7c57eb, type: 2}
+    - {fileID: 11400000, guid: 3f04ff2369f638e40b8e5078d18ffc09, type: 2}

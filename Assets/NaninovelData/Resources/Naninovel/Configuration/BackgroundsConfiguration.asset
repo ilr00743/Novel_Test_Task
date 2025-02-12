@@ -9,32 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 610509a41f8e448419a7e1a6122c05c0, type: 3}
-  m_Name: TextPrintersConfiguration
+  m_Script: {fileID: 11500000, guid: a2cdf0df4ee3a01488d71a4f9583fdaf, type: 3}
+  m_Name: BackgroundsConfiguration
   m_EditorClassIdentifier: 
   DefaultDuration: 0.35
   DefaultEasing: 0
-  AutoShowOnModify: 0
+  AutoShowOnModify: 1
   SceneOrigin: {x: 0.5, y: 0}
-  ZOffset: 0
-  ZStep: 0
-  DefaultPrinterId: Dialogue
-  DefaultBaseRevealSpeed: 0.5
-  DefaultBaseAutoDelay: 0.5
-  MaxRevealDelay: 0.06
-  MaxAutoWaitDelay: 0.02
-  ScaleAutoWait: 1
+  ZOffset: 100
+  ZStep: 0.1
   DefaultMetadata:
-    Implementation: Naninovel.UITextPrinter, Elringus.Naninovel.Runtime, Version=0.0.0.0,
+    Implementation: Naninovel.SpriteBackground, Elringus.Naninovel.Runtime, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     Loader:
-      PathPrefix: TextPrinters
+      PathPrefix: Backgrounds
       ProviderTypes:
       - Naninovel.AddressableResourceProvider, Elringus.Naninovel.Runtime, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       - Naninovel.ProjectResourceProvider, Elringus.Naninovel.Runtime, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-    guid: c9d06c02-d891-46cc-ba01-8aab47cd3e3d
+    guid: 98a7c47b-cbb8-4ffd-a435-f68bbf4c3851
     customData:
       rid: -2
     Pivot: {x: 0.5, y: 0.5}
@@ -50,33 +44,24 @@ MonoBehaviour:
       y: 0
       width: 1
       height: 1
-    AutoReset: 1
-    AutoDefault: 1
-    AutoWait: 1
-    WaitAfterRevealSkip: 1
-    AutoLineBreak: 0
-    AddToBacklog: 1
-    SplitBacklogMessages: 0
-    StopVoice: 0
-    ChangeVisibilityDuration: 0.3
-    WaitVisibilityBeforePrint: 0
-    PrintFrameDelay: 1
-    RevealInstantly: 0
-    AuthoredTemplate: 
+    MatchMode: 0
+    CustomMatchRatio: 0
+    Poses: []
   Metadata:
     ids:
-    - Dialogue
+    - MainBackground
+    - Episode_1
     metas:
-    - Implementation: Naninovel.UITextPrinter, Elringus.Naninovel.Runtime, Version=0.0.0.0,
+    - Implementation: Naninovel.SpriteBackground, Elringus.Naninovel.Runtime, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       Loader:
-        PathPrefix: TextPrinters
+        PathPrefix: Backgrounds
         ProviderTypes:
         - Naninovel.AddressableResourceProvider, Elringus.Naninovel.Runtime, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         - Naninovel.ProjectResourceProvider, Elringus.Naninovel.Runtime, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      guid: 13dd3dba-7cf5-43f0-8737-4663b413b23a
+      guid: de0c7e00-cbf5-4274-8d0b-574d55bb1692
       customData:
         rid: -2
       Pivot: {x: 0.5, y: 0.5}
@@ -92,19 +77,38 @@ MonoBehaviour:
         y: 0
         width: 1
         height: 1
-      AutoReset: 0
-      AutoDefault: 1
-      AutoWait: 1
-      WaitAfterRevealSkip: 1
-      AutoLineBreak: 0
-      AddToBacklog: 1
-      SplitBacklogMessages: 0
-      StopVoice: 0
-      ChangeVisibilityDuration: 0.3
-      WaitVisibilityBeforePrint: 0
-      PrintFrameDelay: 1
-      RevealInstantly: 0
-      AuthoredTemplate: 
+      MatchMode: 0
+      CustomMatchRatio: 0
+      Poses: []
+    - Implementation: Naninovel.LayeredBackground, Elringus.Naninovel.Runtime, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      Loader:
+        PathPrefix: Backgrounds
+        ProviderTypes:
+        - Naninovel.AddressableResourceProvider, Elringus.Naninovel.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        - Naninovel.ProjectResourceProvider, Elringus.Naninovel.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      guid: 46d4f905-fbd3-4306-b30d-826e1aaa6356
+      customData:
+        rid: -2
+      Pivot: {x: 0.5, y: 0.5}
+      PixelsPerUnit: 100
+      EnableDepthPass: 0
+      DepthAlphaCutoff: 0.5
+      CustomTextureShader: {fileID: 0}
+      CustomSpriteShader: {fileID: 0}
+      RenderTexture: {fileID: 0}
+      RenderRectangle:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      MatchMode: 0
+      CustomMatchRatio: 0
+      Poses: []
+  SharedPoses: []
   references:
     version: 2
     RefIds:

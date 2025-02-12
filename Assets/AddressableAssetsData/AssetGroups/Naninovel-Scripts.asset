@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Naninovel-Scripts
+  m_EditorClassIdentifier: 
+  m_GroupName: Naninovel-Scripts
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ae5415772a12d4042a514f31c11d6ca4
+  m_SerializeEntries:
+  - m_GUID: 629f7eacdec317240ae5f97dc8875ac6
+    m_Address: Naninovel/Scripts/Episode_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 7b1abe740e1f3564f8ff9938ce66ccf7, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bae1c5882ec82a44387a80e9d12287c1, type: 2}
+    - {fileID: 11400000, guid: 78ee9d959afa3934fb86e4d98198b87f, type: 2}
