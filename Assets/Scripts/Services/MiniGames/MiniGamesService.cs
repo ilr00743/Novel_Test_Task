@@ -10,7 +10,8 @@ namespace Services.MiniGames
         private readonly IResourceProviderManager _resourceProviderManager;
         private IResourceLoader<GameObject> _resourceLoader;
         private GameObject _currentGame;
-
+        private MiniGameState _state = new();
+        
         public MiniGamesConfiguration Configuration 
             => ProjectConfigurationProvider.LoadOrDefault<MiniGamesConfiguration>();
 
@@ -25,25 +26,40 @@ namespace Services.MiniGames
             return UniTask.CompletedTask;
         }
 
-        public async UniTask<GameObject> LoadAsync(string name) 
-            => await _resourceLoader.LoadAndHoldAsync(name,this);
-
-        public void InstantiateMiniGame(GameObject game)
+        public async UniTask InstantiateAsync(string name)
         {
             if (_currentGame != null)
             {
                 DestroyMiniGame();
             }
+            
+            var resource = await LoadAsync(name);
+            
+            if (resource == null)
+            {
+                Debug.LogError($"<color=red>[Mini Games Service]</color> Can't load {name}");
+                return;
+            }
+            
+            Debug.Log($"<color=red>[Mini Games Service]</color> {name} is loaded");
+            
+            _state.Name = name;
+            
+            Engine.GetService<IStateManager>().GlobalState.SetState(_state);
 
-            _currentGame = GameObject.Instantiate(game);
+            _currentGame = GameObject.Instantiate(resource);
+
+            _currentGame.GetComponent<MiniGame>().Completed += DestroyMiniGame;
         }
+
+        public async UniTask<GameObject> LoadAsync(string name) 
+            => await _resourceLoader.LoadAsync(name);
 
         private void DestroyMiniGame()
         {
             if (_currentGame != null)
             {
-                var name = _currentGame.GetComponent<MiniGame>().Name;
-                _resourceLoader.Release(name, this);
+                _currentGame.GetComponent<MiniGame>().Completed -= DestroyMiniGame;
                 GameObject.Destroy(_currentGame);
                 _currentGame = null;
             }
@@ -52,18 +68,24 @@ namespace Services.MiniGames
         public void ResetService()
         {
             DestroyMiniGame();
-            _resourceLoader.ReleaseAll(this);
             Debug.Log("<color=red>[Mini Games Service]</color> Resources released");
         }
 
-        public void DestroyService() { }
+        public void DestroyService()
+        {
+            _resourceLoader.ReleaseAll(this);
+        }
 
         public void SaveServiceState(GameStateMap state) { }
 
-        public UniTask LoadServiceStateAsync(GameStateMap state)
+        public async UniTask LoadServiceStateAsync(GameStateMap state)
         {
-            DestroyMiniGame();
-            return UniTask.CompletedTask;
+            _state = Engine.GetService<IStateManager>().GlobalState.GetState<MiniGameState>();
+            
+            if (_state != null && !string.IsNullOrEmpty(_state.Name))
+            {
+                await InstantiateAsync(_state.Name);
+            }
         }
     }
 }

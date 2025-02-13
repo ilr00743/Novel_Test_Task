@@ -1,5 +1,4 @@
 ﻿using Naninovel;
-using UnityEngine;
 
 namespace Services.MiniGames
 {
