@@ -9,7 +9,7 @@ namespace NaniCommands
     [CommandAlias("miniGame")]
     public class MiniGameCommand : Command
     {
-        [ParameterAlias(NamelessParameterAlias)]
+        [ParameterAlias(NamelessParameterAlias), ResourceContext(MiniGamesConfiguration.DefaultPathPrefix)]
         public StringParameter Name;
 
         private MiniGamesService _miniGamesService;
@@ -21,6 +21,13 @@ namespace NaniCommands
             _miniGamesService = Engine.GetService<MiniGamesService>();
             
             var resource = await _miniGamesService.LoadAsync(Name);
+            
+            if (resource == null)
+            {
+                Debug.LogError($"<color=red>[Mini Games Service]</color> Can't load {Name}");
+                return;
+            }
+            
             Debug.Log($"<color=red>[Mini Games Service]</color> {Name} is loaded");
             
             _miniGamesService.InstantiateMiniGame(resource);

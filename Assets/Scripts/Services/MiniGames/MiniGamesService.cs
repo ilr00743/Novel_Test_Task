@@ -8,26 +8,27 @@ namespace Services.MiniGames
     public class MiniGamesService : IEngineService<MiniGamesConfiguration>, IStatefulService<GameStateMap>
     {
         private readonly IResourceProviderManager _resourceProviderManager;
-        private IResourceLoader<MiniGame> _resourceLoader;
-        private MiniGame _currentGame;
-            
-        public IResourceLoader<MiniGame> Loader => _resourceLoader;
+        private IResourceLoader<GameObject> _resourceLoader;
+        private GameObject _currentGame;
+
+        public MiniGamesConfiguration Configuration 
+            => ProjectConfigurationProvider.LoadOrDefault<MiniGamesConfiguration>();
 
         public MiniGamesService(IResourceProviderManager resourceProviderManager)
         {
             _resourceProviderManager = resourceProviderManager;
         }
-        
+
         public UniTask InitializeServiceAsync()
         {
-            _resourceLoader = Configuration.Loader.CreateFor<MiniGame>(_resourceProviderManager);
+            _resourceLoader = Configuration.Loader.CreateFor<GameObject>(_resourceProviderManager);
             return UniTask.CompletedTask;
         }
 
-        public async UniTask<MiniGame> LoadAsync(string name) 
-            => await _resourceLoader.LoadAndHoldAsync(name, this);
-        
-        public void InstantiateMiniGame(MiniGame game)
+        public async UniTask<GameObject> LoadAsync(string name) 
+            => await _resourceLoader.LoadAndHoldAsync(name,this);
+
+        public void InstantiateMiniGame(GameObject game)
         {
             if (_currentGame != null)
             {
@@ -41,8 +42,9 @@ namespace Services.MiniGames
         {
             if (_currentGame != null)
             {
-                GameObject.Destroy(_currentGame.gameObject);
-                _resourceLoader.Release(Path.Combine(Configuration.PathPrefix, _currentGame.Name), this);
+                var name = _currentGame.GetComponent<MiniGame>().Name;
+                _resourceLoader.Release(name, this);
+                GameObject.Destroy(_currentGame);
                 _currentGame = null;
             }
         }
@@ -55,9 +57,6 @@ namespace Services.MiniGames
         }
 
         public void DestroyService() { }
-
-        public MiniGamesConfiguration Configuration 
-            => ProjectConfigurationProvider.LoadOrDefault<MiniGamesConfiguration>();
 
         public void SaveServiceState(GameStateMap state) { }
 
