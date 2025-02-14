@@ -6,7 +6,7 @@ namespace Services.MiniGames.Implementations
     public class MemoryCards : MiniGame
     {
         public override string Name { get; } = "Memory Cards";
-
+        
         private void OnEnable()
         {
             InitializeGame();
@@ -19,7 +19,7 @@ namespace Services.MiniGames.Implementations
 
         protected override void EndGame()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("MemoryCards completed");
         }
     }
 }

@@ -28,10 +28,7 @@ namespace Services.MiniGames
 
         public async UniTask InstantiateAsync(string name)
         {
-            if (_currentGame != null)
-            {
-                DestroyMiniGame();
-            }
+            Reset();
             
             var resource = await LoadAsync(name);
             
@@ -44,30 +41,32 @@ namespace Services.MiniGames
             Debug.Log($"<color=red>[Mini Games Service]</color> {name} is loaded");
             
             _state.Name = name;
-            
-            Engine.GetService<IStateManager>().GlobalState.SetState(_state);
+            _state.IsActive = true;
 
             _currentGame = GameObject.Instantiate(resource);
 
-            _currentGame.GetComponent<MiniGame>().Completed += DestroyMiniGame;
+            _currentGame.GetComponent<MiniGame>().Completed += Reset;
         }
 
         public async UniTask<GameObject> LoadAsync(string name) 
             => await _resourceLoader.LoadAsync(name);
 
-        private void DestroyMiniGame()
+        private void Reset()
         {
             if (_currentGame != null)
             {
-                _currentGame.GetComponent<MiniGame>().Completed -= DestroyMiniGame;
+                _currentGame.GetComponent<MiniGame>().Completed -= Reset;
                 GameObject.Destroy(_currentGame);
                 _currentGame = null;
             }
+            
+            _state.Name = null;
+            _state.IsActive = false;
         }
 
         public void ResetService()
         {
-            DestroyMiniGame();
+            Reset();
             Debug.Log("<color=red>[Mini Games Service]</color> Resources released");
         }
 
@@ -76,13 +75,18 @@ namespace Services.MiniGames
             _resourceLoader.ReleaseAll(this);
         }
 
-        public void SaveServiceState(GameStateMap state) { }
+        public void SaveServiceState(GameStateMap state)
+        {
+            state.SetState(_state);
+        }
 
         public async UniTask LoadServiceStateAsync(GameStateMap state)
         {
-            _state = Engine.GetService<IStateManager>().GlobalState.GetState<MiniGameState>();
+            Reset();
             
-            if (_state != null && !string.IsNullOrEmpty(_state.Name))
+            _state = state.GetState<MiniGameState>();
+            
+            if (_state.IsActive && !string.IsNullOrEmpty(_state.Name))
             {
                 await InstantiateAsync(_state.Name);
             }

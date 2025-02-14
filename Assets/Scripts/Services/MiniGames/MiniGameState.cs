@@ -6,5 +6,6 @@ namespace Services.MiniGames
     public class MiniGameState
     {
         public string Name;
+        public bool IsActive;
     }
 }
