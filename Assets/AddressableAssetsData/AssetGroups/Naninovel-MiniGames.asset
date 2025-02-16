@@ -17,7 +17,7 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 14aec2daa004317408b18fe815195004
   m_SerializeEntries:
-  - m_GUID: dd71d2d86eef6a54492cf828df4b4b21
+  - m_GUID: bde2704c632febe4faca098d138a44dc
     m_Address: Naninovel/MiniGames/MemoryCards
     m_ReadOnly: 0
     m_SerializedLabels:

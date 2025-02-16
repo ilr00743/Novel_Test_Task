@@ -92,7 +92,7 @@ MonoBehaviour:
         y: 0
         width: 1
         height: 1
-      AutoReset: 0
+      AutoReset: 1
       AutoDefault: 1
       AutoWait: 1
       WaitAfterRevealSkip: 1

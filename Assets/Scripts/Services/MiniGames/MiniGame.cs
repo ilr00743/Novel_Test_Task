@@ -7,7 +7,12 @@ namespace Services.MiniGames
     {
         public event Action Completed;
         public abstract string Name { get; }
-        protected abstract void InitializeGame();
-        protected abstract void EndGame();
+
+        protected virtual void InitializeGame() { }
+
+        protected virtual void EndGame()
+        {
+            Completed?.Invoke();
+        }
     }
 }

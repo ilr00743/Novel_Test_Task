@@ -7,5 +7,6 @@ namespace Services.MiniGames
     {
         public string Name;
         public bool IsActive;
+        public string OnContinueScript;
     }
 }
