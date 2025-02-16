@@ -17,7 +17,7 @@ MonoBehaviour:
     Resources:
     - name: Dialogue
       pathPrefix: TextPrinters
-      guid: 9ecf80365ffd4b3459e29cb5d27d6f8a
+      guid: 94b8049a899a89d46b19dc71d7ca84d4
   - Id: ChoiceHandlers/387ae3c8-bae7-44f9-b884-3bdf431ed583
     Resources:
     - name: ButtonList
@@ -94,6 +94,15 @@ MonoBehaviour:
     - name: PauseUI
       pathPrefix: UI
       guid: 480f5db62ea305c46b89a86496d2a0c9
+    - name: OpenMapButton
+      pathPrefix: UI
+      guid: 1722557b788f2a749b338a0fca912d0c
+    - name: CloseMapButton
+      pathPrefix: UI
+      guid: ad0725432949a2945a3083c7df6f81ad
+    - name: MapView
+      pathPrefix: UI
+      guid: 92a243a046d5a654db3b45e9e3a884d2
   - Id: Backgrounds/de0c7e00-cbf5-4274-8d0b-574d55bb1692
     Resources: []
   - Id: Backgrounds/46d4f905-fbd3-4306-b30d-826e1aaa6356
@@ -118,10 +127,13 @@ MonoBehaviour:
     - name: Episode_1
       pathPrefix: Scripts
       guid: 629f7eacdec317240ae5f97dc8875ac6
+    - name: Episode_2
+      pathPrefix: Scripts
+      guid: a73f763c4daf32c4696c9438f61cd252
   - Id: MiniGames
     Resources:
     - name: MemoryCards
       pathPrefix: MiniGames
-      guid: dd71d2d86eef6a54492cf828df4b4b21
+      guid: bde2704c632febe4faca098d138a44dc
   - Id: Audio
     Resources: []
