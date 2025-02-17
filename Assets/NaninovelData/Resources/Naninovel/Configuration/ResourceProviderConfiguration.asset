@@ -15,7 +15,7 @@ MonoBehaviour:
   ResourcePolicy: 1
   DynamicPolicySteps: 25
   OptimizeLoadingPriority: 1
-  LogResourceLoading: 1
+  LogResourceLoading: 0
   EnableBuildProcessing: 1
   UseAddressables: 1
   AutoBuildBundles: 1
