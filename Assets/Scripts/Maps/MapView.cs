@@ -26,13 +26,13 @@ namespace Maps
 
         private void UpdateLocations()
         {
-            var locationDestinationPairs = _mapService.MapState.LocationDestinationPairs;
+            var locations = _mapService.MapState.Locations;
 
-            if (locationDestinationPairs == null) return;
+            if (locations.Count == 0) return;
             
-            foreach (var pair in locationDestinationPairs)
+            foreach (var data in locations)
             {
-                _locations?.Find(location => location.Name == pair.Key)?.SetScriptToPlay(pair.Value);
+                _locations?.Find(location => location.Name == data.Location)?.SetScriptToPlay(data.Destination);
             }
         }
     }

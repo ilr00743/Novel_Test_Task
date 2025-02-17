@@ -1,29 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using Naninovel;
+using UnityEngine;
 
 namespace Services.Map
 {
+    
     [Serializable]
     public class MapState
     {
-        public IReadOnlyDictionary<string, string> LocationDestinationPairs;
+        [SerializeField] public List<LocationData> Locations = new();
     }
-    
+
     [InitializeAtRuntime]
     public class MapService : IStatefulService<GameStateMap>
     {
-        public MapState MapState { get; private set; }
-        private Dictionary<string, string> _locationDestinationPairs;
+        public MapState MapState { get; private set; } = new();
 
         public UniTask InitializeServiceAsync()
         {
             Engine.GetService<StateManager>();
-            MapState = new MapState();
-            _locationDestinationPairs = new Dictionary<string, string>();
             return UniTask.CompletedTask;
         }
-
         
         public void ResetService() { }
 
@@ -40,14 +38,12 @@ namespace Services.Map
             return UniTask.CompletedTask;
         }
 
-        public void SetDestinations(List<string> locations, List<string> destinations)
+        public void SetDestinations(List<string> locations, List<string> scriptsToPlay)
         {
             for (int i = 0; i < locations.Count; i++)
             {
-                _locationDestinationPairs.Add(locations[i], destinations[i]);
+                MapState.Locations.Add(new LocationData{Location = locations[i], Destination = scriptsToPlay[i]});
             }
-            
-            MapState.LocationDestinationPairs = _locationDestinationPairs;
         }
     }
 }

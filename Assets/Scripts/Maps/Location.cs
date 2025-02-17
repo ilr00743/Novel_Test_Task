@@ -11,8 +11,7 @@ namespace Maps
     public class Location : ChoiceHandlerButton
     {
         [SerializeField] private string _name;
-        
-        private PlayScript _player;
+
         private Button _button;
         private IUIManager _uiManager;
         private string _scriptToPlay;
@@ -22,7 +21,6 @@ namespace Maps
         protected override void Start()
         {
             base.Start();
-            _player = GetComponent<PlayScript>();
             _button = GetComponent<Button>();
             _uiManager = Engine.GetService<IUIManager>();
             _button.onClick.AddListener(Play);
@@ -35,7 +33,7 @@ namespace Maps
 
         private void Play()
         {
-            if (string.IsNullOrWhiteSpace(_scriptToPlay)) 
+            if (string.IsNullOrEmpty(_scriptToPlay)) 
                 return;
             
             var scriptPlayer = Engine.GetService<IScriptPlayer>();
@@ -45,7 +43,7 @@ namespace Maps
             _uiManager.GetUI<CloseMapButton>().Hide();
             stateManager.Configuration.EnableStateRollback = true;
             
-            var text = $"@Goto {_scriptToPlay}";
+            var text = $"@Goto {_scriptToPlay}\r\n";
             scriptPlayer.PlayTransient($"`{name}` generated script", text).Forget();
         }
     }

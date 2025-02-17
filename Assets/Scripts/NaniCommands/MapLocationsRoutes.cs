@@ -10,7 +10,7 @@ namespace NaniCommands
         [RequiredParameter, ParameterAlias("locations")] 
         public StringListParameter Locations;
 
-        [RequiredParameter, ParameterAlias("destinations")]
+        [RequiredParameter, ParameterAlias("destinations"), EndpointContext]
         public StringListParameter GotoScripts;
 
         private MapService _mapService;
