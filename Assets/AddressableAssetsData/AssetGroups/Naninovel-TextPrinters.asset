@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: e36838416b2e72848b6a1062a88acabe
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 94b8049a899a89d46b19dc71d7ca84d4
+    m_Address: Naninovel/TextPrinters/Dialogue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7b1abe740e1f3564f8ff9938ce66ccf7, type: 2}
   m_SchemaSet:

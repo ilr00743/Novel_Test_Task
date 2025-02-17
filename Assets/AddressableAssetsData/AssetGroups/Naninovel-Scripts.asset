@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a73f763c4daf32c4696c9438f61cd252
+    m_Address: Naninovel/Scripts/Episode_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7b1abe740e1f3564f8ff9938ce66ccf7, type: 2}
   m_SchemaSet:

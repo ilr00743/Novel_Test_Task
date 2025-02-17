@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: a8219db9ec71bce43812a8bc8a9f37a4
   m_SerializeEntries:
+  - m_GUID: 1722557b788f2a749b338a0fca912d0c
+    m_Address: Naninovel/UI/OpenMapButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1add671f8348e8443bcc56290e82fc5e
     m_Address: Naninovel/UI/ContinueInputUI
     m_ReadOnly: 0
@@ -55,6 +61,30 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d53726b3d08433479398f02b4780e7f
     m_Address: Naninovel/UI/SaveLoadUI
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92a243a046d5a654db3b45e9e3a884d2
+    m_Address: Naninovel/UI/MapView
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dbccf6eeb12d9b46a21b2f39fec3dd4
+    m_Address: Naninovel/UI/MenuButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad0725432949a2945a3083c7df6f81ad
+    m_Address: Naninovel/UI/CloseMapButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9077e7de856a904aaeddc670c4d5401
+    m_Address: Naninovel/UI/QuestLog
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
