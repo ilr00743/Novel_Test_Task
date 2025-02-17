@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 namespace Maps
 {
-    [RequireComponent(typeof(PlayScript))]
     public class Location : ChoiceHandlerButton
     {
         [SerializeField] private string _name;
