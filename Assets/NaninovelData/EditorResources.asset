@@ -103,6 +103,12 @@ MonoBehaviour:
     - name: MapView
       pathPrefix: UI
       guid: 92a243a046d5a654db3b45e9e3a884d2
+    - name: QuestLog
+      pathPrefix: UI
+      guid: b9077e7de856a904aaeddc670c4d5401
+    - name: MenuButton
+      pathPrefix: UI
+      guid: 9dbccf6eeb12d9b46a21b2f39fec3dd4
   - Id: Backgrounds/de0c7e00-cbf5-4274-8d0b-574d55bb1692
     Resources: []
   - Id: Backgrounds/46d4f905-fbd3-4306-b30d-826e1aaa6356
