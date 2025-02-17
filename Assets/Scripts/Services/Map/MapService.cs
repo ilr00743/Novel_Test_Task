@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Naninovel;
 using UnityEngine;
 
@@ -43,6 +44,22 @@ namespace Services.Map
             for (int i = 0; i < locations.Count; i++)
             {
                 MapState.Locations.Add(new LocationData{Location = locations[i], Destination = scriptsToPlay[i]});
+            }
+        }
+
+        public void SetLocationsActiveState(bool isActive, List<string> locationsNames = null)
+        {
+            if (locationsNames == null)
+            {
+                MapState.Locations.ForEach(location => location.IsActive = isActive);
+                return;
+            }
+            
+            var selectedLocations = new HashSet<string>(locationsNames);
+
+            foreach (var location in MapState.Locations)
+            {
+                location.IsActive = selectedLocations.Contains(location.Location) ? isActive : true;
             }
         }
     }

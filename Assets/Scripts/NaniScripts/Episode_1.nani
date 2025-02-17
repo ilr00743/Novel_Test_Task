@@ -152,7 +152,7 @@
 @hidePrinter Dialogue
 
 #CheckPoint_4
-@mapLocationsRoutes locations:Park,Home,BusStop destinations:.Part_6,,.NotReachableLocation_4
+@mapLocationsRoutes locations:Park,Home,BusStop destinations:.Part_6,,.NotReachableLocation_4 disableLocations:Home
 
 @showUI OpenMapButton
 
@@ -167,7 +167,7 @@
 @wait 0.2
 @back Back>Park id:Episode_1
 
-@mapLocationsRoutes locations:BusStop,Home,Park destinations:.NotReachableLocation_5,,NotReachableLocation_5
+@mapLocationsRoutes locations:BusStop,Home,Park destinations:.NotReachableLocation_5,,NotReachableLocation_5 disableLocations:Home
 
 #CheckPoint_5
 

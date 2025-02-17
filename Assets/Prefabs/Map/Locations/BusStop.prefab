@@ -242,6 +242,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _name: BusStop
+  _enabledIcon: {fileID: 21300000, guid: 596f5e6862c051742a6880d81de7f1fc, type: 3}
+  _disabledIcon: {fileID: 21300000, guid: 38a5269751a582144aa9e112a4db870c, type: 3}
+  _currentIcon: {fileID: 7430908751109782660}
 --- !u!114 &5072701753146575363
 MonoBehaviour:
   m_ObjectHideFlags: 0

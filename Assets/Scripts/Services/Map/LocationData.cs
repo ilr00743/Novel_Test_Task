@@ -4,5 +4,6 @@
     {
         public string Location;
         public string Destination;
+        public bool IsActive;
     }
 }

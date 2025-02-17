@@ -33,6 +33,8 @@ namespace Maps
             foreach (var data in locations)
             {
                 _locations?.Find(location => location.Name == data.Location)?.SetScriptToPlay(data.Destination);
+                _locations?.Find(location => location.Name == data.Location)?.SetStatus(data.IsActive);
+
             }
         }
     }

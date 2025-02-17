@@ -11,10 +11,14 @@ namespace Maps
     public class Location : ChoiceHandlerButton
     {
         [SerializeField] private string _name;
+        [SerializeField] private Sprite _enabledIcon;
+        [SerializeField] private Sprite _disabledIcon;
+        [SerializeField] private Image _currentIcon;
 
         private Button _button;
         private IUIManager _uiManager;
         private string _scriptToPlay;
+        private bool _isActive;
 
         public string Name => _name;
         
@@ -45,6 +49,13 @@ namespace Maps
             
             var text = $"@Goto {_scriptToPlay}\r\n";
             scriptPlayer.PlayTransient($"`{name}` generated script", text).Forget();
+        }
+
+        public void SetStatus(bool isActive)
+        {
+            _isActive = isActive;
+            
+            _currentIcon.sprite = _isActive ? _enabledIcon : _disabledIcon;
         }
     }
 }

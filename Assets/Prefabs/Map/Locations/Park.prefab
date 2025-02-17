@@ -242,6 +242,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _name: Park
+  _enabledIcon: {fileID: 21300000, guid: c71c8a6273ac3084fa46b5da5c20e62a, type: 3}
+  _disabledIcon: {fileID: 21300000, guid: d2e4e2904481d5b4cbf1adcfcfc15ca9, type: 3}
+  _currentIcon: {fileID: 7430908751109782660}
 --- !u!114 &5072701753146575363
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -242,6 +242,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _name: Home
+  _enabledIcon: {fileID: 21300000, guid: 808652d5c055d0045a033783a3d69eb2, type: 3}
+  _disabledIcon: {fileID: 21300000, guid: f4e8b058cb6b9ed47908de2767459287, type: 3}
+  _currentIcon: {fileID: 7430908751109782660}
 --- !u!114 &5072701753146575363
 MonoBehaviour:
   m_ObjectHideFlags: 0
