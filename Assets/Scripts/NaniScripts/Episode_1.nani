@@ -1,0 +1,353 @@
+#Part_1
+@showUI MenuButton
+
+@mapLocationsRoutes locations:Park,Home,BusStop destinations:.NotReachableLocation,.NotReachableLocation,.Part_2
+
+@back Back>Park id:Episode_1 position:0,0 wait:false
+
+@input G_PlayerName summary:"Enter your name" value:{G_PlayerName}
+
+@stop
+
+@char Brandon.Body+,Head>surprise pos:50,0 scale:0.5
+
+@print "Hello, {G_PlayerName}!" author:Brandon
+
+@print "Hi!" author:{G_PlayerName}
+
+@char Brandon.Body+,Head>neutral pos:50,0 scale:0.5
+
+@print "In a nutshell, Bobby needs your help. He is waiting for you on a bus stop." author:Brandon
+
+@print "Okaaaaay..." author:{G_PlayerName}
+
+@hidePrinter Dialogue
+
+@hide Brandon
+
+#CheckPoint_1
+
+@showUI OpenMapButton wait:false
+
+@startQuest id:Episode_1_Quest_1 description:"Go to bus stop and meet Bobby" wait:false
+@startQuest id:Episode_1_Quest_2 description:"Help Bobby" wait:false
+@startQuest id:Episode_1_Quest_3 description:"Meet with boys" wait:false
+
+
+@showQuestLog QuestLog title:"Home sweet home"
+
+@stop
+
+#Part_2
+@purgeRollback
+@hideUI QuestLog wait:false
+
+@back Back>Black id:Episode_1
+@wait 0.2
+@back Back>BusStop id:Episode_1
+
+@showQuestLog QuestLog title:"Home sweet home"
+@char Bobby.Body+,Head>happy pos:50,0 scale:0.5
+
+@endQuest id:Episode_1_Quest_1
+
+@print "Long time no see, my friend!" author:"Bobby"
+
+@char Bobby.Body+,Head>neutral pos:50,0 scale:0.5
+
+@print "I can tell." author:{G_PlayerName}
+
+@char Bobby.Body+,Head>worried pos:50,0 scale:0.5
+
+@print "As I see, Brandon tell you I need some help." author:Bobby
+
+@print "Yes, what should I do?" author:{G_PlayerName}
+
+@print "Try complete this game. If you win, you maybe get nft token. Very expencive thing :)" author:Bobby
+
+@char Bobby.Body+,Head>surprise pos:50,0 scale:0.5
+
+@print "Alright, I'll do it" author:{G_PlayerName}
+
+@char Bobby.Body+,Head>happy pos:50,0 scale:0.5
+
+@print "Really? Oh, love you man. See ya tomorow here." author:Bobby
+
+@hidePrinter Dialogue
+
+@hide Bobby
+
+@print "Okay, let's go." author:{G_PlayerName}
+
+@hidePrinter Dialogue
+
+@hideUI QuestLog
+
+@miniGame "MemoryCards" goto:.Part_3
+
+@stop
+
+#Part_3
+@purgeRollback
+
+@showQuestLog QuestLog title:"Home sweet home"
+
+@wait 0.3
+
+@endQuest id:Episode_1_Quest_2
+
+@print "Phew! Done." author:{G_PlayerName}
+
+@startQuest id:Episode_1_Quest_4 description:"Get nft for winning game"
+
+@print "Hmm, I don't see any nft. Okay, I shoud check it when come to home." author:{G_PlayerName}
+
+@hidePrinter Dialogue
+
+#CheckPoint_2
+@mapLocationsRoutes locations:Park,Home,BusStop destinations:.NotReachableLocation_2,.Part_4,.NotReachableLocation_2
+
+@showUI OpenMapButton
+
+@stop
+
+#Part_4
+@hideUI QuestLog wait:false
+
+@back Back>Black id:Episode_1
+@wait 0.2
+@back Back>Home id:Episode_1
+
+@showQuestLog QuestLog title:"Home sweet home"
+
+@wait 0.3
+
+@print "(notification on phone)"
+
+@endQuest id:Episode_1_Quest_4
+
+@print "\"You are lucky man, so take this nft. Use him wisely\". Haha, maybe it's really expensive. But I should give it to Bobby." author:{G_PlayerName}
+
+@hidePrinter Dialogue
+
+#CheckPoint_3
+@mapLocationsRoutes locations:Park,Home,BusStop destinations:.NotReachableLocation_3,.NotReachableLocation_3,.Part_5
+
+@showUI OpenMapButton
+
+@stop
+
+#Part_5
+@hideUI QuestLog wait:false
+
+@back Back>Black id:Episode_1
+@wait 0.2
+@back Back>BusStop id:Episode_1
+
+@showQuestLog QuestLog title:"Home sweet home"
+
+@print "And where is Bobby?!" author:{G_PlayerName}
+
+@print "Okay, I'll go to the park. Maybe I'll meet some of the guys." author:{G_PlayerName}
+@hidePrinter Dialogue
+
+#CheckPoint_4
+@mapLocationsRoutes locations:Park,Home,BusStop destinations:.Part_6,,.NotReachableLocation_4
+
+@showUI OpenMapButton
+
+@stop
+
+#Part_6
+@purgeRollback
+
+@hideUI QuestLog wait:false
+
+@back Back>Black id:Episode_1
+@wait 0.2
+@back Back>Park id:Episode_1
+
+@mapLocationsRoutes locations:BusStop,Home,Park destinations:.NotReachableLocation_5,,NotReachableLocation_5
+
+#CheckPoint_5
+
+@showUI OpenMapButton
+
+@showQuestLog QuestLog title:"Home sweet home"
+
+@wait 0.3
+
+@endQuest id:Episode_1_Quest_3
+
+@hideUI QuestLog
+
+@char Brandon.Body+,Head>neutral pos:30,0 scale:0.5 look:Right wait:false
+@char Bobby.Body+,Head>happy pos:70,0 scale:0.5 look:Left
+
+@print "Oh, hi guys! Why are you here?" author:{G_PlayerName}
+
+@char Brandon.Body+,Head>sarcastic pos:30,0 scale:0.5 look:Right wait:false
+@char Bobby.Body+,Head>sad pos:70,0 scale:0.5 look:Left
+
+@print "We were just talking about game that Bobby couldn't beat." author:Brandon
+
+@char Bobby.Body+,Head>worried pos:70,0 scale:0.5 look:Left
+
+@print "So, {G_PlayerName}, did you managed it?" author:Bobby
+
+@char Brandon.Body+,Head>surprise pos:30,0 scale:0.5 look:Right wait:false
+@char Bobby.Body+,Head>surprise pos:70,0 scale:0.5 look:Left wait:false
+
+@print "Piece of cake. Also, I got nft you talked about." author:{G_PlayerName}
+
+@char Brandon.Body+,Head>surprise pos:30,0 scale:0.5 look:Right wait:false
+@char Bobby.Body+,Head>happy pos:70,0 scale:0.5 look:Left wait:false
+
+@print "Great. Then, as we agreed, you can give it to me." author:Bobby
+
+@char Brandon.Body+,Head>angry pos:30,0 scale:0.5 look:Right wait:false
+@char Bobby.Body+,Head>surprise pos:70,0 scale:0.5 look:Left wait:false
+
+@print "Wait a minute. It's me gave contacts of {G_PlayerName}, so you should give it to ME." author:Brandon
+
+@char Bobby.Body+,Head>angry pos:70,0 scale:0.5 look:Left wait:false
+
+@print "Wow-wow, calm down, guys!" author:{G_PlayerName}
+
+@print "<i>I need to come up with something.</i>" author:{G_PlayerName} waitInput:false
+
+@choice handler:ButtonList choiceSummary:"Give it to Bobby" goto:.Part_6_Bobby
+@choice handler:ButtonList choiceSummary:"Give it to Brandon" goto:.Part_6_Brandon
+@choice handler:ButtonList choiceSummary:"Keep for yourself" goto:.Part_6_Me
+
+@stop
+
+#Part_6_Bobby
+@char Brandon.Body+,Head>angry pos:30,0 scale:0.5 look:Right wait:false
+@char Bobby.Body+,Head>happy pos:70,0 scale:0.5 look:Left wait:false
+
+@print "Yeah, as we agreed, you can take it." author:{G_PlayerName}
+
+@print "Oh, thank you, thank you! God bless you." author:Bobby
+
+@char Bobby.Body+,Head>surprise pos:70,0 scale:0.5 look:Left wait:false
+
+@camera offset:-1,1 zoom:0.3
+
+@print "Oh, go to hell, you two!" author:Brandon
+@hidePrinter Dialogue
+
+@char Brandon.Body+,Head>angry look:Left
+@char Brandon.Body+,Head>angry pos:20,0 scale:0.5 look:Left wait:false
+@hide Brandon
+
+@wait 2
+
+@camera offset:1,1 zoom:0.3
+
+@wait 2
+
+@hideAll
+
+@camera offset:0,0 zoom:0
+
+@goto Episode_2.Part_1
+
+@stop
+
+#Part_6_Brandon
+@char Brandon.Body+,Head>sarcastic pos:30,0 scale:0.5 look:Right wait:false
+@char Bobby.Body+,Head>horror pos:70,0 scale:0.5 look:Left wait:false
+
+@print "Maybe Brandon is right. Here, you can take it." author:{G_PlayerName}
+
+@print "Haha, it's my man! Thanks!" author:Brandon
+
+@char Bobby.Body+,Head>angry pos:70,0 scale:0.5 look:Left wait:false
+
+@camera offset:1,1 zoom:0.3
+
+@print "Oh, go to hell, you two!" author:Bobby
+@hidePrinter Dialogue
+
+@char Bobby.Body+,Head>angry look:Right
+@char Bobby.Body+,Head>angry pos:80,0 scale:0.5 wait:false
+@hide Bobby
+
+@wait 2
+
+@camera offset:-1,1 zoom:0.3
+
+@wait 2
+
+@hideAll
+
+@camera offset:0,0 zoom:0
+
+@save
+
+@goto Episode_2.Part_1
+
+@stop
+
+#Part_6_Me
+@char Brandon.Body+,Head>surprise pos:30,0 scale:0.5 look:Right wait:false
+@char Bobby.Body+,Head>surprise pos:70,0 scale:0.5 look:Left wait:false
+
+@print "You know what? I'm going to keep it." author:{G_PlayerName}
+
+@char Bobby.Body+,Head>angry pos:70,-75 scale:0.9 look:Left wait:false
+
+@print "WHAT?!" author:Bobby
+
+@char Brandon.Body+,Head>angry pos:30,-85 scale:1 look:Right wait:false
+
+@print "You little piece of shit! Come here!" author:Brandon
+
+@print "Wow, guys, wai-" author:{G_PlayerName}
+
+@hidePrinter Dialogue
+
+@hideChars
+
+@wait 1
+
+@shake Camera count:2 hor! !ver
+
+@wait 1
+
+@hideAll
+@save 
+@goto Episode_2.Part_1
+
+@stop
+
+#NotReachableLocation
+@print "I don't wanna go to this place now." author:{G_PlayerName}
+@hidePrinter Dialogue
+
+@goto .CheckPoint_1
+
+#NotReachableLocation_2
+@print "I don't wanna go to this place now." author:{G_PlayerName}
+@hidePrinter Dialogue
+
+@goto .CheckPoint_2
+
+#NotReachableLocation_3
+@print "I don't wanna go to this place now." author:{G_PlayerName}
+@hidePrinter Dialogue
+
+@goto .CheckPoint_3
+
+#NotReachableLocation_4
+@print "I don't wanna go to this place now." author:{G_PlayerName}
+@hidePrinter Dialogue
+
+@goto .CheckPoint_4
+
+#NotReachableLocation_5
+@print "I don't wanna go to this place now." author:{G_PlayerName}
+@hidePrinter Dialogue
+
+@goto .CheckPoint_5
