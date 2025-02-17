@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Services.MiniGames.Configs;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -10,6 +11,7 @@ namespace Services.MiniGames.Implementations.MemoryCards
     [RequireComponent(typeof(GridLayoutGroup))]
     public class Board : MonoBehaviour
     {
+        [SerializeField] private MemoryConfig _memoryConfig;
         [SerializeField] private Card _cardPrefab;
         [SerializeField] private Sprite[] _frontImages;
         [SerializeField] private int _pairs;
@@ -23,6 +25,7 @@ namespace Services.MiniGames.Implementations.MemoryCards
 
         public event Action AllPairsFound;
         
+        [ContextMenu("Init board")]
         public void InitializeBoard()
         {
             _grid = GetComponent<GridLayoutGroup>();
@@ -103,14 +106,19 @@ namespace Services.MiniGames.Implementations.MemoryCards
             int totalCards = _pairs * 2;
             int columns = Mathf.CeilToInt(Mathf.Sqrt(totalCards));
             int rows = Mathf.CeilToInt((float)totalCards / columns);
-        
+
             float parentWidth = ((RectTransform)_cardsContainer).rect.width;
             float parentHeight = ((RectTransform)_cardsContainer).rect.height;
-        
-            float cellSize = Mathf.Min(parentWidth / columns, parentHeight / rows);
+
+            float availableWidth = parentWidth - _memoryConfig.SpaceBetweenCards * (columns - 1);
+            float availableHeight = parentHeight - _memoryConfig.SpaceBetweenCards * (rows - 1);
+
+            float cellSize = Mathf.Min(availableWidth / columns, availableHeight / rows);
+
             _grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             _grid.constraintCount = columns;
-            _grid.cellSize = new Vector2(cellSize, cellSize);
+            _grid.cellSize = new Vector2(cellSize * _memoryConfig.CardScale, cellSize * _memoryConfig.CardScale);
+            _grid.spacing = new Vector2(_memoryConfig.SpaceBetweenCards, _memoryConfig.SpaceBetweenCards);
         }
         
         private void OnCardSelected(Card card)

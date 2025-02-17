@@ -1,4 +1,5 @@
 using System;
+using Services.MiniGames.Configs;
 using UnityEngine;
 
 namespace Services.MiniGames
