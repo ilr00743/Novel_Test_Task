@@ -1,15 +1,20 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Card : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private Sprite _backImage;
+    [SerializeField] private float _spinDuration;
     private Sprite _frontImage;
     
     private Image _currentImage;
 
+    private Sequence _revealSequence;
+    private Sequence _hideSequence;
+    
     private bool _isFlipped;
     private bool _isMatched;
     
@@ -24,6 +29,9 @@ public class Card : MonoBehaviour
         _currentImage.sprite = _backImage;
         
         _button.onClick.AddListener(OnCardClicked);
+        
+        _hideSequence = DOTween.Sequence();
+        _revealSequence = DOTween.Sequence();
     }
 
     private void OnCardClicked()
@@ -37,12 +45,18 @@ public class Card : MonoBehaviour
 
     public void Reveal()
     {
-        _currentImage.sprite = _frontImage;
+        var sequence = DOTween.Sequence();
+        sequence.Append(transform.DOLocalRotate(new Vector3(0f, 90f, 0f), _spinDuration, RotateMode.FastBeyond360))
+            .SetEase(Ease.Linear).AppendCallback(() => _currentImage.sprite = _frontImage)
+            .Join(transform.DOLocalRotate(new Vector3(0f, 180f, 0f), _spinDuration, RotateMode.FastBeyond360).SetEase(Ease.Linear));
     }
 
     public void Hide()
     {
-        _currentImage.sprite = _backImage;
+        var sequence = DOTween.Sequence();
+        sequence.Append(transform.DOLocalRotate(new Vector3(0f, 90f, 0f), _spinDuration, RotateMode.FastBeyond360))
+            .SetEase(Ease.Linear).AppendCallback(() => _currentImage.sprite = _backImage)
+            .Join(transform.DOLocalRotate(new Vector3(0f, 0f, 0f), _spinDuration, RotateMode.FastBeyond360).SetEase(Ease.Linear));
     }
 
     public void SetActiveState(bool isActive)

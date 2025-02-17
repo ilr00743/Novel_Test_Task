@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Services.QuestLog
 {
     [InitializeAtRuntime]
-    public class QuestLogService : IStatefulService<GameStateMap>
+    public class QuestLogService : IQuestLogService
     {
         private IUIManager _uiManager;
         private IStateManager _stateManager;

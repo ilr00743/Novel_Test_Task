@@ -10,12 +10,12 @@ namespace Maps
     public class MapView : CustomUI
     {
         [SerializeField] private List<Location> _locations;
-        private MapService _mapService;
+        private IMapService _mapService;
 
         protected override void Start()
         {
             base.Start();
-            _mapService = Engine.GetService<MapService>();
+            _mapService = Engine.GetService<IMapService>();
         }
 
         // Referenced in UnityEvent

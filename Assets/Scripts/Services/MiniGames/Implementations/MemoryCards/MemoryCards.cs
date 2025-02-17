@@ -1,4 +1,5 @@
-﻿using Naninovel;
+﻿using DG.Tweening;
+using Naninovel;
 using UnityEngine;
 
 namespace Services.MiniGames.Implementations.MemoryCards
@@ -7,6 +8,7 @@ namespace Services.MiniGames.Implementations.MemoryCards
     {
         [SerializeField] private Board _board;
         private Canvas _canvas;
+        private CanvasGroup _canvasGroup;
         
         public override string Name { get; } = "Memory Cards";
         
@@ -18,6 +20,9 @@ namespace Services.MiniGames.Implementations.MemoryCards
         protected override void InitializeGame()
         {
             _canvas = GetComponent<Canvas>();
+            _canvasGroup = GetComponent<CanvasGroup>();
+            
+            _canvasGroup.DOFade(1, 0.3f);
             _canvas.worldCamera = Engine.GetService<ICameraManager>().UICamera;
             
             _board.InitializeBoard();
@@ -29,9 +34,8 @@ namespace Services.MiniGames.Implementations.MemoryCards
         protected override void EndGame()
         {
             _board.AllPairsFound -= EndGame;
-            
             Debug.Log("MemoryCards completed");
-            base.EndGame();
+            _canvasGroup.DOFade(0, 0.3f).OnComplete(() => base.EndGame());
         }
     }
 }

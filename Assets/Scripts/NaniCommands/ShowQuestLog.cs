@@ -10,13 +10,11 @@ namespace NaniCommands
         [RequiredParameter, ParameterAlias("title")]
         public StringParameter Title;
 
-        private IUIManager _uiManager;
-        private QuestLogService _questLogService;
+        private IQuestLogService _questLogService;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
-            _uiManager = Engine.GetService<IUIManager>();
-            _questLogService = Engine.GetService<QuestLogService>();
+            _questLogService = Engine.GetService<IQuestLogService>();
             
             _questLogService.SetTitle(Title);
             

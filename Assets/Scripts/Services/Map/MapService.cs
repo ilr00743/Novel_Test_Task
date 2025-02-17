@@ -14,7 +14,7 @@ namespace Services.Map
     }
 
     [InitializeAtRuntime]
-    public class MapService : IStatefulService<GameStateMap>
+    public class MapService : IMapService
     {
         public MapState MapState { get; private set; } = new();
 

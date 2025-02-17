@@ -138,9 +138,10 @@ namespace Services.MiniGames.Implementations.MemoryCards
         
         private IEnumerator CheckMatch()
         {
+            var delay = new WaitForSeconds(0.8f);
             SetCardsActiveState(false);
             
-            yield return new WaitForSeconds(0.5f);
+            yield return delay;
         
             if (IsMatch(_firstCard, _secondCard))
             {
@@ -156,6 +157,8 @@ namespace Services.MiniGames.Implementations.MemoryCards
             }
             else
             {
+                yield return delay;
+                
                 _firstCard.Hide();
                 _secondCard.Hide();
             }

@@ -9,11 +9,11 @@ namespace NaniCommands
         [ParameterAlias("id"), RequiredParameter]
         public StringParameter QuestId;
 
-        private QuestLogService _questLogService;
+        private IQuestLogService _questLogService;
         
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
-            _questLogService = Engine.GetService<QuestLogService>();
+            _questLogService = Engine.GetService<IQuestLogService>();
             
             _questLogService.RemoveQuest(QuestId);
             return UniTask.CompletedTask;

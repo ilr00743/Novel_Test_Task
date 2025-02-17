@@ -15,10 +15,10 @@ namespace NaniCommands
         [ParameterAlias("disableLocations")]
         public StringListParameter DisableLocations;
 
-        private MapService _mapService;
+        private IMapService _mapService;
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
-            _mapService = Engine.GetService<MapService>();
+            _mapService = Engine.GetService<IMapService>();
             
             _mapService.SetDestinations(Locations, GotoScripts);
 

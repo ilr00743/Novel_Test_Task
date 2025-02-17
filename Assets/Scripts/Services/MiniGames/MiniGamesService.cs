@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Services.MiniGames
 {
     [InitializeAtRuntime]
-    public class MiniGamesService : IEngineService<MiniGamesConfiguration>, IStatefulService<GameStateMap>
+    public class MiniGamesService : IMiniGamesService
     {
         private readonly IResourceProviderManager _resourceProviderManager;
         private IResourceLoader<GameObject> _resourceLoader;
@@ -57,7 +57,7 @@ namespace Services.MiniGames
             _currentGame.GetComponent<MiniGame>().Completed += ContinuePlay;
         }
 
-        public async UniTask<GameObject> LoadAsync(string name) 
+        private async UniTask<GameObject> LoadAsync(string name) 
             => await _resourceLoader.LoadAsync(name);
 
         private void ContinuePlay()

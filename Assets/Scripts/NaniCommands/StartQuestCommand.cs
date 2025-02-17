@@ -12,11 +12,11 @@ namespace NaniCommands
         [ParameterAlias("description"), RequiredParameter]
         public StringParameter QuestDescription;
 
-        private QuestLogService _questLogService;
+        private IQuestLogService _questLogService;
         
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
-            _questLogService = Engine.GetService<QuestLogService>();
+            _questLogService = Engine.GetService<IQuestLogService>();
             
             _questLogService.AddQuest(QuestId, QuestDescription);
             return UniTask.CompletedTask;

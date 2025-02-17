@@ -14,7 +14,7 @@ namespace NaniCommands
         [ParameterAlias("goto"), EndpointContext]
         public NamedStringParameter Goto;
         
-        private MiniGamesService _miniGamesService;
+        private IMiniGamesService _miniGamesService;
         
         public override async UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
@@ -27,7 +27,7 @@ namespace NaniCommands
                 gotoScript = builder.ToString();
             }
 
-            _miniGamesService = Engine.GetService<MiniGamesService>();
+            _miniGamesService = Engine.GetService<IMiniGamesService>();
 
             await _miniGamesService.InstantiateAsync(Name, gotoScript);
         }

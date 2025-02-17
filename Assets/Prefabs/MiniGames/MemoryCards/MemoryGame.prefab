@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 7361559448595143150}
   - component: {fileID: 153014070214518980}
   - component: {fileID: 6835573696782013523}
+  - component: {fileID: 7194818049645936227}
   - component: {fileID: 7942255468139829647}
   - component: {fileID: 1514319277126122985}
   m_Layer: 5
@@ -162,6 +163,18 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!225 &7194818049645936227
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3508478425144875442}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &7942255468139829647
 MonoBehaviour:
   m_ObjectHideFlags: 0
