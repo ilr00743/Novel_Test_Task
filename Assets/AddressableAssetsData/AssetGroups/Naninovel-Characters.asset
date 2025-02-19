@@ -17,6 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: a6769d3a64843bc45aeca5faaaac762a
   m_SerializeEntries:
+  - m_GUID: 1f1ada9310841fd418e5c8420f6a52ae
+    m_Address: Naninovel/Characters/Phone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 375b8226de8c7c44ca778b08d013d394
+    m_Address: Naninovel/Characters/Pig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ce195bf29f83a648ac0849dbe8db6e4
     m_Address: Naninovel/Characters/Brandon
     m_ReadOnly: 0

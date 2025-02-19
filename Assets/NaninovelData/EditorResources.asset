@@ -143,3 +143,13 @@ MonoBehaviour:
       guid: bde2704c632febe4faca098d138a44dc
   - Id: Audio
     Resources: []
+  - Id: Characters/032419a5-2549-4f71-b5d6-0f1c4bbfbd87
+    Resources:
+    - name: Phone
+      pathPrefix: Characters
+      guid: 1f1ada9310841fd418e5c8420f6a52ae
+  - Id: Characters/7bdd8240-b616-44e5-9e78-5d7a5ac1a9a3
+    Resources:
+    - name: Pig
+      pathPrefix: Characters
+      guid: 375b8226de8c7c44ca778b08d013d394

@@ -20,7 +20,6 @@ namespace Services.Map
 
         public UniTask InitializeServiceAsync()
         {
-            Engine.GetService<StateManager>();
             return UniTask.CompletedTask;
         }
         

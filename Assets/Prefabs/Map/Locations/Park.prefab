@@ -147,7 +147,6 @@ GameObject:
   - component: {fileID: 7430908751109782660}
   - component: {fileID: -6081322253410486162}
   - component: {fileID: 5072701753146575363}
-  - component: {fileID: 6268150698416296395}
   m_Layer: 5
   m_Name: Park
   m_TagString: Untagged
@@ -289,19 +288,3 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6268150698416296395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8174763382129384653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5975c9748a52c8d43b34c8d7c428cacd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scriptName: 
-  scriptText: 
-  playOnAwake: 0
-  disableWaitInput: 1

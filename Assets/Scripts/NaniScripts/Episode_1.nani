@@ -1,7 +1,7 @@
 #Part_1
 @showUI MenuButton
 
-@mapLocationsRoutes locations:Park,Home,BusStop destinations:.NotReachableLocation,.NotReachableLocation,.Part_2
+@mapLocationsRoutes locations:Park,Home,BusStop destinations:.NotReachableLocation,.NotReachableLocation,.Part_2 wait:true
 
 @back Back>Park id:Episode_1 position:0,0 wait:false
 
@@ -105,7 +105,7 @@
 @hidePrinter Dialogue
 
 #CheckPoint_2
-@mapLocationsRoutes locations:Park,Home,BusStop destinations:.NotReachableLocation_2,.Part_4,.NotReachableLocation_2
+@mapLocationsRoutes locations:Park,Home,BusStop destinations:.NotReachableLocation_2,.Part_4,.NotReachableLocation_2 wait:true
 
 @showUI OpenMapButton
 
@@ -126,12 +126,23 @@
 
 @endQuest id:Episode_1_Quest_4
 
-@print "\"You are lucky man, so take this nft. Use him wisely\". Haha, maybe it's really expensive. But I should give it to Bobby." author:{G_PlayerName}
+@print "\"You are lucky man, so take this nft. Use him wisely\". Ok, let's look at this." author:{G_PlayerName}
+
+@hidePrinter Dialogue
+
+@char Phone.+ scale:0.5 pos:50,60
+@char Pig pos:50,50,-5
+
+@stop
+
+@hideChars Phone,Pig remove:true
+
+@print "Haha, maybe it's really expensive. But I should give it to Bobby." author:{G_PlayerName}
 
 @hidePrinter Dialogue
 
 #CheckPoint_3
-@mapLocationsRoutes locations:Park,Home,BusStop destinations:.NotReachableLocation_3,.NotReachableLocation_3,.Part_5
+@mapLocationsRoutes locations:Park,Home,BusStop destinations:.NotReachableLocation_3,.NotReachableLocation_3,.Part_5 wait:true
 
 @showUI OpenMapButton
 
@@ -152,7 +163,7 @@
 @hidePrinter Dialogue
 
 #CheckPoint_4
-@mapLocationsRoutes locations:Park,Home,BusStop destinations:.Part_6,,.NotReachableLocation_4 disableLocations:Home
+@mapLocationsRoutes locations:Park,Home,BusStop destinations:.Part_6,,.NotReachableLocation_4 disableLocations:Home wait:true
 
 @showUI OpenMapButton
 
@@ -167,7 +178,7 @@
 @wait 0.2
 @back Back>Park id:Episode_1
 
-@mapLocationsRoutes locations:BusStop,Home,Park destinations:.NotReachableLocation_5,,NotReachableLocation_5 disableLocations:Home
+@mapLocationsRoutes locations:BusStop,Home,Park destinations:.NotReachableLocation_5,,NotReachableLocation_5 disableLocations:Home wait:true
 
 #CheckPoint_5
 
@@ -320,9 +331,9 @@
 @save 
 @goto Episode_2.Part_1
 
-@stop
 
 #NotReachableLocation
+@printer Dialogue
 @print "I don't wanna go to this place now." author:{G_PlayerName}
 @hidePrinter Dialogue
 
