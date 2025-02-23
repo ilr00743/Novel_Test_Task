@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Naninovel;
+﻿using Naninovel;
 using UnityEngine;
 
 namespace Services.MiniGames
@@ -32,7 +31,7 @@ namespace Services.MiniGames
             return UniTask.CompletedTask;
         }
 
-        public async UniTask InstantiateAsync(string gameName, string onContinueScript = null)
+        public async UniTask<MiniGame> InstantiateAsync(string gameName, string onContinueScript = null)
         {
             Reset();
             
@@ -40,21 +39,22 @@ namespace Services.MiniGames
             MiniGameState.IsActive = true;
             MiniGameState.OnContinueScript = onContinueScript;
             
-            var resource = await LoadAsync(gameName);
+            _currentGame = await LoadAsync(gameName);
 
-            if (resource == null)
+            if (_currentGame == null)
             {
                 Debug.LogWarning($"<color=red>[Mini Games Service]</color> Can't load {gameName}. Will be loaded first mini game from config.");
-                //TODO: Loading FirstOrDefault from config
-                MiniGameState.Name = gameName; //name of firstOrDefault loaded game
-                return;
+                
+                MiniGameState.Name = "MemoryCards";
+                _currentGame = await LoadAsync(gameName);
             }
             
             Debug.Log($"<color=red>[Mini Games Service]</color> {gameName} is loaded");
             
-            _currentGame = GameObject.Instantiate(resource);
+            _currentGame = GameObject.Instantiate(_currentGame);
 
             _currentGame.GetComponent<MiniGame>().Completed += ContinuePlay;
+            return _currentGame.GetComponent<MiniGame>();
         }
 
         private async UniTask<GameObject> LoadAsync(string name) 
@@ -79,7 +79,7 @@ namespace Services.MiniGames
             if (_currentGame != null)
             {
                 _currentGame.GetComponent<MiniGame>().Completed -= ContinuePlay;
-                GameObject.Destroy(_currentGame);
+                GameObject.Destroy(_currentGame, _currentGame.GetComponent<MiniGame>().FadeTime);
                 _currentGame = null;
             }
             

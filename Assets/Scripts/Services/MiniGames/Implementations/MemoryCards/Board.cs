@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Naninovel;
 using Services.MiniGames.Configs;
 using UnityEngine;
 using UnityEngine.UI;
@@ -132,16 +133,16 @@ namespace Services.MiniGames.Implementations.MemoryCards
             {
                 _secondCard = card;
                 _secondCard.SetActiveState(false);
-                StartCoroutine(CheckMatch());
+                CheckMatch();
             }
         }
         
-        private IEnumerator CheckMatch()
+        private async UniTaskVoid CheckMatch()
         {
-            var delay = new WaitForSeconds(0.8f);
+            var delay = 1f;
             SetCardsActiveState(false);
-            
-            yield return delay;
+
+            await UniTask.Delay(TimeSpan.FromSeconds(0.3f));
         
             if (IsMatch(_firstCard, _secondCard))
             {
@@ -151,17 +152,19 @@ namespace Services.MiniGames.Implementations.MemoryCards
 
                 if (_pairsFoundCount == _pairs)
                 {
+                    await UniTask.Delay(TimeSpan.FromSeconds(delay));
                     AllPairsFound?.Invoke();
-                    yield break;
+                    return;
                 }
             }
             else
             {
-                yield return delay;
+                await UniTask.Delay(TimeSpan.FromSeconds(delay));
                 
                 _firstCard.Hide();
                 _secondCard.Hide();
             }
+            
             SetCardsActiveState(true);
         
             _firstCard = null;

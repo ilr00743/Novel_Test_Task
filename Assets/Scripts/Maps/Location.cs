@@ -1,6 +1,5 @@
 ﻿using Naninovel;
 using Naninovel.UI;
-using UI;
 using UI.Map;
 using UnityEngine;
 using UnityEngine.UI;

@@ -11,9 +11,6 @@ public class Card : MonoBehaviour
     private Sprite _frontImage;
     
     private Image _currentImage;
-
-    private Sequence _revealSequence;
-    private Sequence _hideSequence;
     
     private bool _isFlipped;
     private bool _isMatched;
@@ -29,9 +26,6 @@ public class Card : MonoBehaviour
         _currentImage.sprite = _backImage;
         
         _button.onClick.AddListener(OnCardClicked);
-        
-        _hideSequence = DOTween.Sequence();
-        _revealSequence = DOTween.Sequence();
     }
 
     private void OnCardClicked()

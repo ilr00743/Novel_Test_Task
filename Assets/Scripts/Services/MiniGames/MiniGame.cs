@@ -1,10 +1,9 @@
 using System;
-using Services.MiniGames.Configs;
-using UnityEngine;
+using Naninovel.UI;
 
 namespace Services.MiniGames
 {
-    public abstract class MiniGame : MonoBehaviour
+    public abstract class MiniGame : CustomUI
     {
         public event Action Completed;
         public abstract string Name { get; }
@@ -14,6 +13,7 @@ namespace Services.MiniGames
         protected virtual void EndGame()
         {
             Completed?.Invoke();
+            Hide();
         }
     }
 }
